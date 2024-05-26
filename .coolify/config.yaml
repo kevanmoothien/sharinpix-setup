@@ -1,0 +1,6 @@
+version: "1.0"
+app:
+  name: setup-sharinpix
+  type: nodejs
+  env:
+    - PORT=3000
