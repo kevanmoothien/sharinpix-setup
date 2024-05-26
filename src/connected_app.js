@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 async function runPuppeteer(url) {
-  const browser = await puppeteer.launch({ headless: true, executablePath: '/usr/bin/chromium-browser' });
+  const browser = await puppeteer.launch({ headless: true, executablePath: '/root/.cache/puppeteer' });
   const page = await browser.newPage();
 
   // Set user agent
