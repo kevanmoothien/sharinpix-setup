@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get update
+sudo apt-get install -y chromium-browser
+
 if [ ! -f bin/phantomjs ]; then
   echo "PhantomJS not found, installing..."
   wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
