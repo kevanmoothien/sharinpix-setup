@@ -11,4 +11,4 @@ EXPOSE 3000
 WORKDIR /app
 COPY ["package.json", "yarn.lock", "./"] .
 RUN yarn install
-RUN yarn start
+CMD ['node', './src/index.js']
