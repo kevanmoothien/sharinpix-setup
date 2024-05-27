@@ -9,6 +9,6 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 EXPOSE 3000
 WORKDIR /app
-# COPY ["package.json", "yarn.lock", "./"]
+COPY ["package.json", "yarn.lock", "./"] .
 RUN yarn install
 RUN yarn start
