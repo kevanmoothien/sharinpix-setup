@@ -1,14 +1,26 @@
 FROM node:current-alpine
 
-# manually installing chrome
-RUN apk add chromium
+# Manually installing Chrome
+RUN apk add --no-cache chromium
 
-# skips puppeteer installing chrome and points to correct binary
+# Skips Puppeteer installing Chrome and points to the correct binary
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-EXPOSE 3000
+# Set the working directory
 WORKDIR /app
-COPY ["package.json", "yarn.lock", "./"] .
+
+# Copy package.json and yarn.lock
+COPY ["package.json", "yarn.lock", "./"]
+
+# Install dependencies
 RUN yarn install
-CMD ['node', './src/index.js']
+
+# Copy the rest of the application
+COPY . .
+
+# Expose the port
+EXPOSE 3000
+
+# Command to run the application
+CMD ["node", "./src/index.js"]
